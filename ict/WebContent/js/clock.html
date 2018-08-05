@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="rDiv"></div>
+
+초입력 : <input type="text" id="al">
+<button type="button" onclick="setAl()">알람 설정</button>
+
+
+<script>
+
+
+
+
+function time(){
+	var toDate = new Date();
+	var yyyy = toDate.getFullYear();
+	var mm = toDate.getMonth()+1;
+	var dd = toDate.getDate();
+	
+	var hh = toDate.getHours();
+	var mi = toDate.getMinutes();
+	var ss = toDate.getSeconds();
+	
+	var day = toDate.getDay();
+	var today = "";
+	
+	if(day===4){
+	  today = "Thurthday";
+	}
+	
+	var clockStr = yyyy + "." + mm + "." + dd + " " + today;
+	clockStr += ' ' + hh + ':' + mi + ':' + ss;
+	
+	
+	document.querySelector("#rDiv").innerHTML = clockStr;
+	
+}
+//setTimeout(time,3000); // 3초이따 한번 실행
+
+setInterval(time,1000);
+ 
+
+function setAl(){
+var t = parseInt(document.querySelector("#al").value);
+alert(t);
+
+setInterval(function(){
+	alert(5);
+}, t*1000)
+
+}
+
+
+</script>
+
+</body>
+</html>
